@@ -1,6 +1,7 @@
 
 import 'package:comida_rapida/src/data/menu_items.dart';
 import 'package:comida_rapida/src/model/menu_item.dart';
+import 'package:comida_rapida/src/pages/pedido_page.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -68,7 +69,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       child: Text(
                         "HAMBURGUESAS",
                         style: TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic
@@ -82,14 +83,11 @@ class _FirstScreenState extends State<FirstScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     cards('Hamburguesa', 'Hamburguesa Simple', 15, const AssetImage('assets/images/hamburgesa2.jpg')),
-                    const SizedBox(width: 40,),
+                    //const SizedBox(width: 0,),
                     cards('Hamburguesa Doble', 'Hamburguesa doble ', 23, const AssetImage('assets/images/hamburgesa2.jpg'))
                   ],
                 ),
-                const SizedBox(height: 20,),
-
-
-
+                //const SizedBox(height: 20,),
 
                 Container(
                   width: double.infinity,
@@ -112,12 +110,12 @@ class _FirstScreenState extends State<FirstScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20,),
+                //const SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     cards('Pollo frito', 'Pollo con salsa', 35, const AssetImage('assets/images/pollo.jpg')),
-                    const SizedBox(width: 40,),
+                    //const SizedBox(width: 20,),
                     cards('Pollo al Horno', 'Alas de pollo', 20, const AssetImage('assets/images/pollo2.jpg'))
                   ],
                 ),
@@ -148,12 +146,12 @@ class _FirstScreenState extends State<FirstScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20,),
+                const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     cards('Combo1', 'Hamburguesa con papas fritas', 45, const AssetImage('assets/images/combo1.png')),
-                    const SizedBox(width: 40,),
+                    //const SizedBox(width: 40,),
                     cards('Combo 2  Doble', 'Hamburguesa con doble carne', 33, const AssetImage('assets/images/combo2.jpg'))
                   ],
                 ),
@@ -207,8 +205,8 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget cards(String nom, String descrip, int precio, ImageProvider img){
     return Container(
       margin: const EdgeInsets.all(10),
-      width: 200,
-      height: 350,
+      width: 170,
+      height: 335,
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 230, 183, 45),
         borderRadius: BorderRadius.all(Radius.circular(10))
@@ -219,9 +217,13 @@ class _FirstScreenState extends State<FirstScreen> {
           Container(
             padding: const EdgeInsets.all(3.5),
             child: Image(
-              image: img
+              image: img,
+              height: 150,
+              fit: BoxFit.cover,
+              
             ),
           ),
+          const SizedBox(height: 10,),
 
           Container(
             padding: const EdgeInsets.all(0.5),
@@ -282,7 +284,11 @@ class _FirstScreenState extends State<FirstScreen> {
                 fontWeight: FontWeight.bold
               ),
             ),
-            onPressed: (){},
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PedidoPage(nombre: nom, descripcion: descrip, precio: precio, image: img,),
+              ));
+            },
             color: Colors.red[900],
           )
 

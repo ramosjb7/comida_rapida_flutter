@@ -1,6 +1,7 @@
 import 'package:comida_rapida/src/pages/home_page.dart';
-import 'package:comida_rapida/src/pages/registrarse_page.dart';
-import 'package:comida_rapida/src/pages/registro_page.dart';
+//import 'package:comida_rapida/src/pages/pedido_page.dart';
+//import 'package:comida_rapida/src/pages/registrarse_page.dart';
+//import 'package:comida_rapida/src/pages/registro_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,15 +14,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      initialRoute: 'registro',
-      routes: {
-        'home' : (BuildContext context) => const FirstScreen(),
-        'registro':(BuildContext context) => const LoginScreen(),
-        'registrate': (BuildContext context) => const RegistrarsePage()
-      },
+      home: FirstScreen(),
+      //initialRoute: 'registro',
+      //routes: {
+        //'home' : (BuildContext context) => const FirstScreen(),
+        //'registro':(BuildContext context) => const LoginScreen(),
+        //'registrate': (BuildContext context) => const RegistrarsePage(),
+        //'pedido'   :(context) => const PedidoPage()
+      //},
     );
   }
 }
