@@ -1,6 +1,7 @@
 
 import 'package:comida_rapida/src/data/menu_items.dart';
 import 'package:comida_rapida/src/model/menu_item.dart';
+import 'package:comida_rapida/src/pages/infor1_page.dart';
 import 'package:comida_rapida/src/pages/pedido_page.dart';
 import 'package:flutter/material.dart';
 
@@ -206,7 +207,7 @@ class _FirstScreenState extends State<FirstScreen> {
     return Container(
       margin: const EdgeInsets.all(10),
       width: 170,
-      height: 335,
+      height: 400,
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 230, 183, 45),
         borderRadius: BorderRadius.all(Radius.circular(10))
@@ -290,6 +291,21 @@ class _FirstScreenState extends State<FirstScreen> {
               ));
             },
             color: Colors.red[900],
+          ),
+
+          RaisedButton(
+            child: const Text(
+              'Ingred  Preparacion',
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
+            color: Colors.red[900],
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) =>  InforPage(nombre: nom, descripcion: descrip, image: img),
+              ));
+            },
           )
 
         ],
